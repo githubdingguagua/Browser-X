@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Properties="clr-namespace:WebBrowser.Properties" x:Class="WebBrowser.MainWindow"
         Title="Browser X" Height="737" Width="1035">
-    <Grid HorizontalAlignment="Left" Height="695" Margin="0,10,0,0" VerticalAlignment="Top" Width="1025">
-        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="977,1,0,0" Height="29">
+    <Grid HorizontalAlignment="Left" Height="705" VerticalAlignment="Top" Width="1025">
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="977,11,0,0" Height="29">
             <MenuItem Header="" Width="38" Height="29">
                 <MenuItem.Background>
-                    <ImageBrush ImageSource="E:\.NET Apps\WebBrowser\WebBrowser\Chrome_ico.png"/>
+                    <ImageBrush ImageSource="C:\Users\HP\Desktop\System-settings-icon.png"/>
                 </MenuItem.Background>
                 <MenuItem Header="+ Tab" HorizontalAlignment="Left" Width="140"
 			   IsEnabled="False"/>
@@ -24,28 +24,66 @@
                 <MenuItem Header="Exit"/>
             </MenuItem>
         </Menu>
-        <WebBrowser x:Name="browserWindow" HorizontalAlignment="Left" Height="660" Margin="0,35,0,0" VerticalAlignment="Top" Width="1025" LoadCompleted="onPageLoad"/>
-        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="30" Margin="78,0,0,0" VerticalAlignment="Top" Width="808" Opacity="0.65"/>
-        <TextBox x:Name="urlBox" HorizontalAlignment="Left" Height="30" Margin="78,0,0,0" TextWrapping="Wrap" Text="Enter URL here" VerticalAlignment="Top" Width="808" Opacity="0.5" Panel.ZIndex="1" GotFocus="onURLBoxFocus" FontSize="16"/>
-        <Button x:Name="back" Content="&lt;" HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Top" Width="32" Height="30" Click="back_Click">
-            <Button.Background>
-                <ImageBrush/>
-            </Button.Background>
+        <WebBrowser x:Name="browserWindow" HorizontalAlignment="Left" Height="635" Margin="0,60,0,0" VerticalAlignment="Top" Width="1025" LoadCompleted="onPageLoad" RenderTransformOrigin="0.5,0.48" Navigating="browserWindow_Navigating"/>
+        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="30" Margin="89,13,0,0" VerticalAlignment="Top" Width="797" Opacity="0.65"/>
+        <TextBox x:Name="urlBox" HorizontalAlignment="Left" Height="30" Margin="89,13,0,0" TextWrapping="Wrap" Text="Enter URL here" VerticalAlignment="Top" Width="797" Opacity="0.5" Panel.ZIndex="1" GotFocus="onURLBoxFocus" FontSize="16" KeyDown="Enter_Press"/>
+        <Button x:Name="go" Content="" Margin="899,12,96,662" Click="go_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="C:\Users\HP\Desktop\Search-icon.png"/>
+                        </Grid.Background>
+
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
         </Button>
-        <Button x:Name="forward" Content="&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="45,0,0,0" Click="forward_Click">
-            <Button.Background>
-                <ImageBrush/>
-            </Button.Background>
+        <Button x:Name="back" Content="" Margin="9,10,981,662" Click="back_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="C:\Users\HP\Desktop\previous-icon.png"/>
+                        </Grid.Background>
+
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
         </Button>
-        <Button x:Name="go" Content="GO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" RenderTransformOrigin="4.24,0" Height="30" Margin="897,0,0,0" Click="go_Click">
+        <Button x:Name="refresh" Content="Refresh" Margin="934,8,56,662" Click="refresh_Click" Foreground="{x:Null}" BorderBrush="Red">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="C:\Users\HP\Desktop\refresh-2-icon.png"/>
+                        </Grid.Background>
+
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
         </Button>
-        <Button x:Name="refresh" Content="R" HorizontalAlignment="Left" Margin="940,0,0,0" VerticalAlignment="Top" Width="32" Height="30" Click="refresh_Click">
+        <Button x:Name="forward" Content="" Margin="49,10,941,662" Click="forward_Click">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="C:\Users\HP\Desktop\next-icon.png"/>
+                        </Grid.Background>
+
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
         </Button>
     </Grid>
 </Window>
